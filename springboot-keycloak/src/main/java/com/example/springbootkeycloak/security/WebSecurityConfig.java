@@ -25,8 +25,8 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
                 .requestMatchers(HttpMethod.GET, "/test/anonymous", "/test/anonymous/**").permitAll()
-                .requestMatchers(HttpMethod.GET, "/test/admin", "/test/admin/**").hasRole(ADMIN)
-                .requestMatchers(HttpMethod.GET, "/test/user").hasAnyRole(ADMIN, USER)
+                .requestMatchers(HttpMethod.GET, "/test/admin", "/test/admin/**").hasAnyAuthority("ROLE_default-roles-springboot keycloak", "ROLE_uma_authorization")
+                .requestMatchers(HttpMethod.GET, "/test/user").hasAnyAuthority("ROLE_default-roles-springboot keycloak", "ROLE_uma_authorization")
                 .anyRequest().authenticated();
         http.oauth2ResourceServer()
                 .jwt()
