@@ -19,7 +19,7 @@ public class OAuth2ResourceServerSecurityConfiguration extends WebSecurityConfig
 
   @Bean
   public JwtDecoder jwtDecoder() {
-    return NimbusJwtDecoder.withJwkSetUri("http://localhost:8080/realms/hipermarket-reino/protocol/openid-connect/certs").build();
+    return NimbusJwtDecoder.withJwkSetUri("http://localhost:8180/realms/hypermaket-reino/protocol/openid-connect/certs").build();
   }
 
  }

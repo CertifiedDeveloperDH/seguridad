@@ -14,10 +14,9 @@ public class SecurityConfig {
 
         http
                 .authorizeExchange()
-                .anyExchange()
-                .authenticated()
+                .anyExchange().authenticated()  // All requests need authentication
                 .and()
-                .oauth2Login(); // to redirect to oauth2 login page.
+                .oauth2Login();  // Use OAuth2 login for authentication
 
 
         return http.build();
